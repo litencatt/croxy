@@ -1,7 +1,11 @@
 @rc_file_path = "#{ENV['HOME']}/.croxyrc"
 
 def exec_curl
-  ARGV.shift
+  if ARGV.empty?
+    show_help
+    exit
+  end
+
   ARGV.delete('curl')
   command = ARGV.join(' ')
 
@@ -12,9 +16,17 @@ def exec_curl
   puts `curl #{command}`
 end
 
+def show_help
+  puts "curl <options>: exec curl with options"
+  puts
+  puts "croxy help"
+  puts "-l: show .croxyrc lists"
+  puts "-e: edit .croxyrc"
+end
+
 case ARGV[0]
-when "-exec"
-  exec_curl
+when "-h"
+  show_help
 when "-l"
   File.open(@rc_file_path, "r") do |f|
     f.each_line{|line| puts line}
@@ -22,7 +34,5 @@ when "-l"
 when "-e"
   exec "vi #{@rc_file_path}"
 else
-  puts "-exec: exec curl with options"
-  puts "-l: show .croxyrc lists"
-  puts "-e: edit .croxyrc"
+  exec_curl
 end
