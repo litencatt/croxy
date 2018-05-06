@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-@rc_file_path = "#{ENV['HOME']}/.croxyrc"
+@rc_file_path = "#{ENV['HOME']}/.croxy_history"
 
 def optimize(options)
   show_help if ARGV.empty?
@@ -31,7 +31,7 @@ def show_help
   puts
   puts "croxy help"
   puts "  -l: show saved curl lists"
-  puts "  -e: edit .croxyrc"
+  puts "  -e: edit .croxy_history"
   exit
 end
 

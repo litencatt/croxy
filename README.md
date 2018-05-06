@@ -10,7 +10,7 @@ $ setup
 ```
 $ croxy http://localhost:3000
 
-#=> create ~/.croxyrc and save executed curl commands
+#=> create ~/.croxy_history and save executed curl commands
 ```
 
 ### Use with peco
