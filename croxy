@@ -6,8 +6,12 @@ def optimize(options)
 
   ARGV.delete('curl')
 
-  i = ARGV.index("-H")
-  ARGV[i+1] = "\"#{ARGV[i+1]}\""
+  if ARGV.include?('-H')
+    indexes = ARGV.map.with_index{|e, i| e == "-H" ? i : nil}.compact
+    indexes.each do |i|
+      ARGV[i+1] = "\"#{ARGV[i+1]}\""
+    end
+  end
 
   ARGV.join(' ')
 end
