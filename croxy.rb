@@ -2,15 +2,14 @@
 
 def exec_curl
   ARGV.shift
-  command = "curl #{ARGV.join(' ')}"
+  ARGV.delete('curl')
+  command = ARGV.join(' ')
 
   File.open(@rc_file_path, "a") do |f|
     f.puts command
   end
 
-  `echo #{command}`
-
-  puts `#{command}`
+  puts `curl #{command}`
 end
 
 case ARGV[0]
