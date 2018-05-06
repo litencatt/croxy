@@ -1,19 +1,24 @@
 @rc_file_path = "#{ENV['HOME']}/.croxyrc"
 
-def exec_curl
-  if ARGV.empty?
-    show_help
-    exit
-  end
+def optimize(options)
+  show_help if ARGV.empty?
 
   ARGV.delete('curl')
-  command = ARGV.join(' ')
+
+  i = ARGV.index("-H")
+  ARGV[i+1] = "\"#{ARGV[i+1]}\""
+
+  ARGV.join(' ')
+end
+
+def exec_curl
+  curl_options = optimize(ARGV)
 
   File.open(@rc_file_path, "a") do |f|
-    f.puts command
+    f.puts curl_options
   end
 
-  puts `curl #{command}`
+  puts `curl #{curl_options}`
 end
 
 def show_help
