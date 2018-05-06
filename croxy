@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 @rc_file_path = "#{ENV['HOME']}/.croxyrc"
 
 def optimize(options)
