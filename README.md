@@ -3,6 +3,7 @@
 ### Setup
 ```rb
 $ setup
+
 #=> copy croxy to /usr/loca/bin
 ```
 
@@ -16,7 +17,7 @@ $ croxy http://localhost:3000
 ### Use with peco
 ```
 # ~/.zshrc
-function curl-peco () {
+function croxy-peco () {
     local selected_command=$(croxy -l | peco)
     if [ -n "$selected_command" ]; then
         BUFFER="croxy ${selected_command}"
@@ -24,6 +25,6 @@ function curl-peco () {
     fi
     zle clear-screen
 }
-zle -N curl-peco
-bindkey "^@" curl-peco
+zle -N croxy-peco
+bindkey "^@" croxy-peco
 ```
