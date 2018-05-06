@@ -17,11 +17,12 @@ def exec_curl
 end
 
 def show_help
-  puts "curl <options>: exec curl with options"
+  puts "ruby croxy.rb <options>: exec curl with options"
   puts
   puts "croxy help"
-  puts "-l: show .croxyrc lists"
-  puts "-e: edit .croxyrc"
+  puts "  -l: show saved curl lists"
+  puts "  -e: edit .croxyrc"
+  exit
 end
 
 case ARGV[0]
