@@ -2,7 +2,7 @@
 
 ### Setup
 ```rb
-$ setup
+$ ./setup
 
 #=> copy croxy to /usr/loca/bin
 ```
