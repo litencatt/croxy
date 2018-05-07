@@ -43,7 +43,7 @@ when "-l"
     f.each_line{|line| puts line}
   end
 when "-e"
-  exec "vim #{@rc_file_path}"
+  `vim #{@rc_file_path}`
 else
   exec_curl
 end
