@@ -39,9 +39,7 @@ case ARGV[0]
 when "-h"
   show_help
 when "-l"
-  File.open(@rc_file_path, "r") do |f|
-    f.each_line{|line| puts line}
-  end
+  puts File.readlines(@rc_file_path).sort
 when "-e"
   `vim #{@rc_file_path}`
 else
